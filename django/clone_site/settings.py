@@ -23,10 +23,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = config('SECRET_KEY')
-# RECAPTCHAv2 KEY
-
-DRF_RECAPTCHA_SECRET_KEY = config('DRF_RECAPTCHA_SECRET_KEY')
-
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -130,28 +126,14 @@ WSGI_APPLICATION = 'clone_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'db_website',
-#         'USER': 'admin',
-#         'PASSWORD': 'Oq3Ynjda',
-#         'HOST': 'mysql-49502-0.cloudclusters.net',
-#         'PORT': '11680',
-#         'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-#         },
-#     }
-# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_website',
-        'USER': 'root',
-        'PASSWORD': 'long',
-        'HOST': 'localhost',
-        'PORT': '3306'
+        'NAME': config('NAME_DB'),
+        'USER': config('USERNAME_DB'),
+        'PASSWORD': config('PASSWORD_DB'),
+        'HOST': config('HOST_DB'),
     }
 }
 
